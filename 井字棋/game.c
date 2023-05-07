@@ -13,6 +13,8 @@ struct player
 int main() 
 {
   menu();
+  struct player *rec_1=&pl_1;
+  struct player *rec_2=&pl_2;
   do
   {
     scanf("%d",&a);
@@ -26,7 +28,6 @@ int main()
           printf("退出游戏\n");
           return 1;
         case 1:
-          
           if(start==true)
           {
             printf ("开始游戏\n");
@@ -35,11 +36,11 @@ int main()
           prinboard();
           if(twins==false)
           {
-          player1();
+            player1(rec_1,rec_2);
           }
           else
           {
-            player2();
+            player2(rec_1,rec_2);
           }
           break;
         default:
@@ -93,7 +94,7 @@ void menu()
   printf("请输入:");
 }
 //玩家1下棋
-void player1()
+void player1(struct player *pl_1,struct player *pl_2)
 {
   while(getchar()!='\n');
   int x,y;
@@ -124,10 +125,12 @@ void player1()
   {
     printf("恭喜玩家%c你在本局获胜",c);
     initiozation();
+    pl_1->num_win++;
+    pl_2->num_lose++;
   }
 }
 //玩家2下棋
-void player2()
+void player2(struct player* pl_1,struct player* pl_2)
 {
   while(getchar()!='\n');
   int x,y;
@@ -158,6 +161,8 @@ void player2()
   {
     printf("恭喜玩家%c你在本局获胜",c);
     initiozation();//刷新棋盘
+    pl_2->num_win++;
+    pl_1->num_lose++;
   }
 }
 //人机下棋
