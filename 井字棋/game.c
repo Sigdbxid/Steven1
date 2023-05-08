@@ -174,7 +174,7 @@ char verify(char ch_ww)
       }
     }
   }
-  if(draw)
+  if(draw)//检查是否平局
   {
     return 2;
   }
