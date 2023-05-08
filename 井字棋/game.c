@@ -164,7 +164,7 @@ char verify(char ch_ww)
     ch_ww='1';
     return ch_ww;
   }
-  for(int i=0;i<SIDE;i++)
+  for(int i=0;i<SIDE;i++)//检查是否平局
   {
     for(int j=0;j<SIDE;j++)
     {
@@ -174,7 +174,7 @@ char verify(char ch_ww)
       }
     }
   }
-  if(draw)//检查是否平局
+  if(draw)
   {
     return 2;
   }
