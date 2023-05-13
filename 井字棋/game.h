@@ -2,6 +2,9 @@
 #include<time.h>
 #include<stdbool.h>
 #define SIDE 3
+#define PRINT(fmt, ...)   \
+        printf("[FILE:%s][FUNC: %s][LINE:%d]\n"fmt,\
+        __FILE__,__FUNCTION__,__LINE__,__VA_ARGS__)
 int a;
 struct player;
 bool twins=false;
@@ -9,13 +12,10 @@ bool start=true;
 char board[3][3];
 char c='*';
 char d='#';
-int win =1;
-int lose=0;
-int win_lose=2;
-char verify(char ch_ww);
+short verify(char ch_ww);
 void menu();
 void prinboard();
 void initizanation();
 void player(struct player *pl);
 void initiozation();
-void again();
+short again();
