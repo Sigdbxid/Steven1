@@ -33,7 +33,7 @@ int main()
             printf ("开始游戏\n");
             start=false;
           }
-          prinboard();
+          p_board();
           if(twins==false)
           {
             player(&pa);
@@ -41,7 +41,7 @@ int main()
             switch(re)
             {
               case 1:
-                prinboard();
+                p_board();
                 printf("恭喜玩家%c本局获胜\n",pl_1->simbolo);
                 pa.num_win++;
                 pb.num_lose++;
@@ -51,14 +51,14 @@ int main()
                   return 1;
                 }
                 printf("新的一局了\n");
-                initiozation();
+                initialization();
                 break;
               case 2:
-                prinboard();
+                p_board();
                 printf("平局!\n");
                 printf("现在比分%d : %d\n",pa.num_win,pb.num_win);
                 printf("新的一局了...\n");
-                initiozation();
+                initialization();
                 break;
             }
           }
@@ -69,7 +69,7 @@ int main()
             switch(re)
             {
               case 1:
-                prinboard();
+                p_board();
                 printf("恭喜玩家%c本局获胜\n",pl_2->simbolo);
                 pa.num_win++;
                 pb.num_lose++;
@@ -79,15 +79,17 @@ int main()
                   return 1;
                 }
                 printf("新的一局了\n");
-                initiozation();
+                initialization();
                 break;
               case 2:
-                prinboard();
+                p_board();
                 printf("平局!\n");
                 printf("现在比分%d : %d\n",pa.num_win,pb.num_win);
                 printf("新的一局了...\n");
-                initiozation();
+                initialization();
                 break;
+                default:
+                  break;
             }
           }
           break;
@@ -99,7 +101,7 @@ int main()
   return 0;
 }
 //棋盘初始化并且也可以在一盘结束后刷新棋盘
-void initiozation()
+void initialization()
 {
   for(int i=0;i<SIDE;i++)
   {
@@ -110,7 +112,7 @@ void initiozation()
   }
 }
 //棋盘打印
-void prinboard()
+void p_board()
 {
   char (*p)[3]=board;
   for(int i=0;i<3;i++)
